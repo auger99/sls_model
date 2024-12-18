@@ -20,6 +20,7 @@
 typedef enum {
   OFF  = 0,
   FULL = 1,
+  QUARTER,
   HALF,
   THREE_QUARTER,
 } intensity_t;
@@ -115,10 +116,15 @@ void LED_set(intensity_t intensity) {
       green = GREEN;
       blue  = BLUE;
       break;
+    case QUARTER:
+      red   = RED*0.25;
+      green = GREEN*0.25;
+      blue  = BLUE*0.25;
+      break;      
     case HALF:
-      red   = RED/2;
-      green = GREEN/2;
-      blue  = BLUE/2;
+      red   = RED*0.5;
+      green = GREEN*0.5;
+      blue  = BLUE*0.5;
       break;
     case THREE_QUARTER:
       red   = RED*0.75;
