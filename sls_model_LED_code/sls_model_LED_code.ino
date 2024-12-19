@@ -1,14 +1,14 @@
 #include <Adafruit_NeoPixel.h>
 
 // Define button pin
-#define BUTTON_PIN 10
+#define BUTTON_PIN 7
 
 // Define button debouncer values
 #define NUM_CHECKS 10
 #define CHECK_DELAY 2
 
 // Define the pin connected to the NeoPixel strip and the number of LEDs
-#define NEO_PIN 6
+#define NEO_PIN 5
 #define NUMPIXELS 100  // Adjust based on the number of LEDs in your strip -- Go big or go home
 
 // Define RGB value for orange
@@ -181,10 +181,9 @@ state_t state_on(void) {
 state_t state_liftoff(void) {
   state_t next_state = STATE_LIFTOFF;
 
+  // Change state to STATE_OFF
   liftoff_routine();
   LED_set(OFF);
-
-  // Change state to STATE_OFF
   next_state = STATE_OFF;
   return next_state;
 }
