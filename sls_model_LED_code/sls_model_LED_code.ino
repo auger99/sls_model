@@ -59,8 +59,9 @@ void loop() {
   static bool button_press = 0;
   static state_t state = STATE_OFF;
 
-  if (digitalRead(BUTTON_PIN) == 1) {
+  if (digitalRead(BUTTON_PIN) == 0) {     // Active low button
     button_press = debounce(BUTTON_PIN);
+    LED_set(FULL);    // DEBUG
   }
 
   if (button_press == 1) {          // Change state if the button is pressed
@@ -92,7 +93,7 @@ bool debounce(int button) {
   bool debounce = 0;
 
   for (int i = 0; i < NUM_CHECKS; i++) {
-    reading += digitalRead(button);
+    reading += !digitalRead(button);      // Active low button so not it to add up
     delay(CHECK_DELAY);
   }
 
