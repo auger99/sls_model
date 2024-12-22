@@ -19,11 +19,11 @@
 
 // Define LED intensities
 typedef enum {
-  OFF  = 0,
-  FULL = 1,
-  QUARTER,
-  HALF,
-  THREE_QUARTER,
+  OFF           = 0,
+  FULL          = 1,
+  QUARTER       = 2,
+  HALF          = 3,
+  THREE_QUARTER = 4,
 } intensity_t;
 
 // Define state machine values
@@ -205,8 +205,10 @@ state_t state_liftoff(void) {
 
 // Liftoff routine
 void liftoff_routine(void) {
-  // LED_set(HALF);
-  LED_set(THREE_QUARTER);
+  // Choose LED level
+  intensity_t intensity = random(2, 4);
+
+  LED_set(intensity);
   delay(random(LIFTOFF_OFF_MIN, LIFTOFF_OFF_MAX));
 
   LED_set(FULL);
