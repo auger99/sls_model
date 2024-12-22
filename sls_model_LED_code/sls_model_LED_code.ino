@@ -14,7 +14,7 @@
 
 // Define RGB value for orange
 #define RED   255
-#define GREEN 35
+#define GREEN 50
 #define BLUE  0
 
 // Define LED intensities
@@ -50,8 +50,9 @@ Adafruit_NeoPixel pixels(NUMPIXELS, NEO_PIN, NEO_GRB + NEO_KHZ800);
 void setup() {
   pinMode(BUTTON_PIN, INPUT);
 
-  pixels.begin(); // Initialize the NeoPixel strip
-  pixels.show();  // Initialize all LEDs as off
+  pixels.begin();                       // Initialize the NeoPixel strip
+  pixels.setBrightness(255);            // Initialize NeoPixels to max brightness
+  pixels.show();                        // Initialize all LEDs as off
 }
 
 void loop() {
