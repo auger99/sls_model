@@ -81,12 +81,14 @@ bool debounce(int button) {
   int reading   = 0;
   bool debounce = 0;
 
-  for (int i = 0; i < NUM_CHECKS; i++) {
-    reading += !digitalRead(button);      // Active low button so NOT it to add up
-    delay(CHECK_DELAY);
-  }
+  if (digitalRead(button) == 0) {           // If button is pressed
+    for (int i = 0; i < NUM_CHECKS; i++) {
+      reading += !digitalRead(button);      // Active low button so NOT it to add up
+      delay(CHECK_DELAY);
+    }
 
-  delay(DEBOUNCE_DELAY);
+    delay(DEBOUNCE_DELAY);
+  }
 
   return debounce = (reading == NUM_CHECKS) ? 1 : 0;
 }
