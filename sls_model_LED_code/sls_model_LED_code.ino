@@ -37,7 +37,7 @@ typedef enum {
 #define LIFTOFF_BUTTON_WAIT 500   //milliseconds
 #define LIFTOFF_OFF_MIN 10
 #define LIFTOFF_OFF_MAX 50
-#define LIFTOFF_ON_MIN 50
+#define LIFTOFF_ON_MIN 10
 #define LIFTOFF_ON_MAX 200
 
 
